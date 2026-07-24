@@ -1,22 +1,21 @@
 # Apple Stock Analysis 🍎📈
 
-Exploratory data analysis of Apple Inc. (AAPL) historical stock price data using Python, Pandas, Matplotlib, and Seaborn.
+Exploratory data analysis of Apple Inc. (AAPL) historical stock price data, built in a Jupyter Notebook with Pandas, Matplotlib, and Seaborn.
 
-## What's inside
+## Steps performed
 
-The analysis (`Apple_stocks.html` — exported Jupyter Notebook) covers:
-
-- **Data cleaning** — parsing dates, timezone handling, sorting by date
-- **Closing price trend** — line chart of AAPL close price over time
-- **Monthly average close price** — bar chart grouped by calendar month
-- **Yearly average close price** — bar chart grouped by year
-- **High/low price range** — filled area chart over time
-- **Price distribution** — histogram with KDE of closing prices
-- **Daily returns** — percentage change in close price over time
+1. **Load & clean data** — read CSV into a DataFrame, parse `Date` column (`pd.to_datetime`, UTC/timezone handling), sort chronologically.
+2. **Feature extraction** — derive `Year` and `Month` columns from `Date` for grouping.
+3. **Closing Price Trend Over Time** — line chart of `Close` price across the full date range.
+4. **Average Closing Price by Month** — group by `Month`, ordered Jan–Dec, plotted as a bar chart (`coolwarm` palette).
+5. **Apple Daily Price Range (High vs Low)** — filled area chart between `Low` and `High`, with `Close` overlaid.
+6. **Average Closing Price per Year** — yearly grouped bar chart (`viridis` palette).
+7. **Distribution of Daily Closing Prices** — histogram + KDE of `Close` values.
+8. **Daily Percentage Change in Closing Price** — `pct_change()` on `Close` plotted over time, with a zero reference line.
 
 ## Screenshots
 
-Chart outputs are available in [`screenshots/`](screenshots/).
+Chart outputs saved in [`screenshots/`](screenshots/).
 
 ## Tech stack
 
@@ -28,8 +27,8 @@ Chart outputs are available in [`screenshots/`](screenshots/).
 
 ## Viewing the analysis
 
-Open `Apple_stocks.html` directly in a browser to view the full notebook with code, charts, and output.
+Open `Apple_stocks.html` in a browser — full notebook with code cells, charts, and output.
 
 ## Notes
 
-The raw CSV dataset used in the notebook isn't included in this repo. To reproduce the analysis, supply your own AAPL historical price CSV (date, open, high, low, close, volume columns) and adjust the `pd.read_csv(...)` path in the notebook.
+Raw CSV dataset not included in repo. To reproduce, supply your own AAPL historical price CSV with `Date, Open, High, Low, Close, Volume` columns and point `pd.read_csv(...)` at it.
